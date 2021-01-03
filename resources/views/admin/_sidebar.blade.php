@@ -10,7 +10,7 @@
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="nav-item active  ">
-                <a class="nav-link" href="./dashboard.html">
+                <a class="nav-link" href="{{route('admin_home')}}">
                     <i class="material-icons">dashboard</i>
                     <p>Home</p>
                 </a>
@@ -22,7 +22,7 @@
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="./tables.html">
+                <a class="nav-link" href="{{route('admin_newss')}}">
                     <i class="material-icons">content_paste</i>
                     <p>News</p>
                 </a>

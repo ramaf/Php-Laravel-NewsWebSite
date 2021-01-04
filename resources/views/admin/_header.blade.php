@@ -32,7 +32,7 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                         @auth
                         <a class="dropdown-item" href="#">{{Auth::user()->name}}</a>
-                        <a class="dropdown-item" href="#">Settings</a>
+                        <a class="dropdown-item" href="{{route('admin_setting')}}">Settings</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{route('admin_logout')}}">Log out</a>
                         @endauth

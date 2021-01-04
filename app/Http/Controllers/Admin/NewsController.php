@@ -103,11 +103,13 @@ class NewsController extends Controller
         $data->detail = $request->input('detail');
         $data->slug = $request->input('slug');
         $data->status = $request->input('status');
-
-        $data->image = $request->file('image')->store('images');
+        if($request->file('image')!=null)
+        {
+            $data->image = Storage::putFile('images',$request->file('image'));
+        }
 
         $data->save();
-        return redirect()->route('admin_news');
+        return redirect()->route('admin_newss');
     }
 
     /**

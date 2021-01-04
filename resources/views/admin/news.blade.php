@@ -34,7 +34,7 @@
                                                 {{$rs->id}}
                                             </td>
                                             <td>
-                                                {{$rs->category_id}}
+                                                {{$rs->category->title}}
                                             </td>
                                             <td>
                                                 {{$rs->title}}

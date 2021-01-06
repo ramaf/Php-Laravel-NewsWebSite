@@ -22,7 +22,7 @@
                                         <tr><h4>Parent Id:</h4> <select name="parent_id" id="parent_id" style="width: 600px">
                                                 <option value="0" selected="selected">Main Category</option>
                                                 @foreach($datalist as $rs)
-                                                    <option value="{{$rs->id}}">{{$rs->title}}</option>
+                                                    <option value="{{$rs->id}}">{{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs,$rs->title) }}</option>
                                                 @endforeach
 
 
@@ -38,7 +38,7 @@
                                                 <option value="false">False</option>
 
                                             </select></tr><br><br>
-                                        <tr><button type="submit" style="color:#95999c; background-color: #4a5568; width: 150px;">Ekle</button></tr>
+                                        <tr><button type="submit" style="color:#95999c; background-color: #4a5568; width: 150px;">Add</button></tr>
                                     </table>
                                 </form>
                             </div>

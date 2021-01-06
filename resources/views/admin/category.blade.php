@@ -32,7 +32,7 @@
                                     {{$rs->id}}
                                 </td>
                                 <td>
-                                    {{$rs->parent_id}}
+                                    {{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs,$rs->title) }}
                                 </td>
                                 <td>
                                     {{$rs->title}}
@@ -41,10 +41,10 @@
                                     {{$rs->status}}
                                 </td>
                                 <td>
-                                    <a href="{{route('admin_category_edit',['id'=>$rs->id])}}">Edit</a>
+                                    <a href="{{route('admin_category_edit',['id'=>$rs->id])}}"><img src="{{asset('assets/admin/images')}}/edit.png" height="30"></a>
                                 </td>
                                 <td>
-                                    <a href="{{route('admin_category_delete',['id'=>$rs->id])}}" onclick="return confirm('Delete ! Are you sure?')">Delete</a>
+                                    <a href="{{route('admin_category_delete',['id'=>$rs->id])}}" onclick="return confirm('Delete ! Are you sure?')"><img src="{{asset('assets/admin/images')}}/delete.png" height="30"></a>
                                 </td>
                             </tr>
                         @endforeach

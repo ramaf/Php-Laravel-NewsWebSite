@@ -13,12 +13,12 @@
 
                         <div class="menu-bottom">
                             <ul class="link">
-                                <li> <a href="#">Home</a></li>
-                                <li> <a href="#">About</a></li>
-                                <li> <a href="#">Life</a></li>
-                                <li> <a href="#">Sports </a></li>
-                                <li> <a href="#">Political  </a></li>
-                                <li> <a href="#"> Contact us</a></li>
+                                <li> <a href="{{route('home')}}">Home</a></li>
+                                <li> <a href="{{route('aboutus')}}">About Us</a></li>
+                                <li> <a href="{{route('contact')}}">Contact Us</a></li>
+                                <li> <a href="{{route('faq')}}">FAQ</a></li>
+                                <li> <a href="{{route('references')}}">References</a></li>
+
                             </ul>
                         </div>
                     </div>

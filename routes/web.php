@@ -33,6 +33,9 @@ Route::get('/', function () {
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
+Route::get('/references', [HomeController::class, 'references'])->name('references');
+Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
 Route::middleware('auth')->prefix('admin')->group(function (){
     Route::get('/',[\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin_home');
@@ -75,9 +78,11 @@ Route::middleware('auth')->prefix('admin')->group(function (){
 
 Route::get('/admin/login',[HomeController::class,'login'])->name('admin_login');
 Route::post('/admin/logincheck',[HomeController::class,'logincheck'])->name('admin_logincheck');
+Route::get('/logout',[HomeController::class,'logout'])->name('logout');
 Route::get('/admin/logout',[HomeController::class,'logout'])->name('admin_logout');
 
 
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return view('home.index');
 })->name('dashboard');

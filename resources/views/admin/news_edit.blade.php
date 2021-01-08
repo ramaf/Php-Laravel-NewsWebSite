@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Add News')
+@section('title','Edit News')
 
 
 

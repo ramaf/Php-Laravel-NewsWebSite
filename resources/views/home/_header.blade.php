@@ -8,7 +8,7 @@
                     <div class="full">
                         <div class="center-desk">
                             <div class="logo">
-                                <a href="index.html"><img src="{{asset('assets')}}/images/logo.png" alt="#"></a>
+                                <a href="{{route('home')}}"><img src="{{asset('assets')}}/images/logo1.png" alt="#"></a>
                             </div>
                         </div>
                     </div>
@@ -21,7 +21,7 @@
                         <div class="limit-box">
                             <nav class="main-menu">
                                 <ul class="menu-area-main">
-                                    <li class="active"> <a href="index.html">Home</a> </li>
+                                    <li class="active"> <a href="{{route('home')}}">Home</a> </li>
                                     @foreach($parentCategories as $rs)
                                     <li> <a href="about.html">{{$rs->title}}</a> </li>
                                     @endforeach
@@ -37,7 +37,7 @@
                     <div class="location_icon_bottum">
                         <ul>
                             @auth
-                            <li><img src="{{asset('assets')}}/icon/user1.png" />{{Auth::user()->name}}</li>
+                                <li><img src="{{asset('assets')}}/icon/user1.png" /><a href="{{route('myprofile')}}">{{Auth::user()->name}}</a></li>
                                 <li><i>Welcome To HomePage</i></li>
                                 <li><a href="{{route('logout')}}"><img src="{{asset('assets')}}/icon/logout.png" />Logout</a></li>
 

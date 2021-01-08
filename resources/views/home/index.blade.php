@@ -7,6 +7,8 @@
 @endsection
 
 @section('keywords','News, Latest News, Breaking News')
+@include('home._header')
+@include('home._slider')
 
 @section('content')
     <div class="about">

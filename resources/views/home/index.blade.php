@@ -1,123 +1,105 @@
 @extends('layouts.home')
 
-@section('title', 'News Website')
+@section('title', 'Home '.$setting->title)
 
-@section('description')
-    See the breaking news!
-@endsection
+@section('description'){{$setting->description}} @endsection
 
-@section('keywords','News, Latest News, Breaking News')
+@section('keywords',$setting->description)
 @include('home._header')
 @include('home._slider')
 
 @section('content')
-    <div class="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-5 col-lg-5 col-md-5 co-sm-l2">
-                    <div class="about_img">
-                        <figure><img src="{{asset('assets')}}/images/about.png" alt="img" /></figure>
-                    </div>
-                </div>
-                <div class="col-xl-7 col-lg-7 col-md-7 co-sm-l2">
-                    <div class="about_box">
-                        <h3>About Us</h3>
-                        <span>Our Mobile Shop</span>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of It is a long established fact that a reader will be distracted by the </p>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end about -->
-
     <!-- brand -->
     <div class="brand">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="titlepage">
-                        <h2>Our Brand</h2>
+                        <h2>Latest News</h2>
                     </div>
                 </div>
             </div>
         </div>
         <div class="brand-bg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
-                        <div class="brand_box">
-                            <img src="{{asset('assets')}}/images/1.png" alt="img" />
-                            <h3>$<strong class="red">100</strong></h3>
-                            <span>Mobile Phone</span>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
+
+                <div class="container">
+
+                    <div class="row">
+                        @foreach($last as $rs)
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
+                            <div class="brand_box">
+                                <img src="{{ asset("storage/$rs->image") }}" alt="img" />
+                                <h3><strong class="red">{{$rs->title}}</strong></h3>
+                                <a href="{{route('news',['id' => $rs->id,'slug' => $rs->slug])}}"><button class="send">Read</button></a>
+                            </div>
                         </div>
+                        @endforeach
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
-                        <div class="brand_box">
-                            <img src="{{asset('assets')}}/images/2.png" alt="img" />
-                            <h3>$<strong class="red">100</strong></h3>
-                            <span>Mobile Phone</span>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
-                        <div class="brand_box">
-                            <img src="{{asset('assets')}}/images/3.png" alt="img" />
-                            <h3>$<strong class="red">100</strong></h3>
-                            <span>Mobile Phone</span>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                        <div class="brand_box">
-                            <img src="{{asset('assets')}}/images/4.png" alt="img" />
-                            <h3>$<strong class="red">100</strong></h3>
-                            <span>Mobile Phone</span>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 mrgn">
-                        <div class="brand_box">
-                            <img src="{{asset('assets')}}/images/5.png" alt="img" />
-                            <h3>$<strong class="red">100</strong></h3>
-                            <span>Mobile Phone</span>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 mrgn">
-                        <div class="brand_box">
-                            <img src="{{asset('assets')}}/images/6.png" alt="img" />
-                            <h3>$<strong class="red">100</strong></h3>
-                            <span>Mobile Phone</span>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                            <i><img src="{{asset('assets')}}/images/star.png"/></i>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <a class="read-more">See More</a>
+
+                </div>
+
+        </div>
+    </div>
+
+    <div class="brand">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>Random News</h2>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="brand-bg">
+
+            <div class="container">
+
+                <div class="row">
+                    @foreach($picked as $rs)
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
+                            <div class="brand_box">
+                                <img src="{{ asset("storage/$rs->image") }}" alt="img" />
+                                <h3><strong class="red">{{$rs->title}}</strong></h3>
+                                <a href="{{route('news',['id' => $rs->id,'slug' => $rs->slug])}}"><button class="send">Read</button></a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="brand">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>Daily News</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="brand-bg">
+
+            <div class="container">
+
+                <div class="row">
+                    @foreach($daily as $rs)
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 margin">
+                            <div class="brand_box">
+                                <img src="{{ asset("storage/$rs->image") }}" alt="img" />
+                                <h3><strong class="red">{{$rs->title}}</strong></h3>
+                                <a href="{{route('news',['id' => $rs->id,'slug' => $rs->slug])}}"><button class="send">Read</button></a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+
+            </div>
+
         </div>
     </div>
 

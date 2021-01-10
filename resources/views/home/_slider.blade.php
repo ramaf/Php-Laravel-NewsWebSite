@@ -1,45 +1,21 @@
 <section class="slider_section">
     <div id="myCarousel" class="carousel slide banner-main" data-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="first-slide" src="{{asset('assets')}}/images/banner.jpg" alt="First slide">
+
+            @foreach($slider->take(3) as $rs)
+            <div class="carousel-item @if($loop->first) active @endif">
+                <img class="first-slide" style="width: 1920px; height: 836px;" src="{{ asset("storage/$rs->image") }}" alt="{{$rs->title}}">
                 <div class="container">
                     <div class="carousel-caption relative">
-                        <span>All New Phones </span>
-                        <h1>up to 25% Flat Sale</h1>
-                        <p>It is a long established fact that a reader will be distracted by the readable content
-                            <br> of a page when looking at its layout. The point of using Lorem Ipsum is that</p>
-                        <a class="buynow" href="#">Read</a>
+                        <span>{{$rs->title}} </span>
+                        <h1>{{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category,$rs->category->title) }}</h1>
+                        <p>{{$rs->description}}</p>
+                        <a class="buynow" href="{{route('news',['id' => $rs->id,'slug' => $rs->slug])}}">Read</a>
 
                     </div>
                 </div>
             </div>
-            <div class="carousel-item">
-                <img class="second-slide" src="{{asset('assets')}}/images/banner.jpg" alt="Second slide">
-                <div class="container">
-                    <div class="carousel-caption relative">
-                        <span>All New Phones </span>
-                        <h1>up to 25% Flat Sale</h1>
-                        <p>It is a long established fact that a reader will be distracted by the readable content
-                            <br> of a page when looking at its layout. The point of using Lorem Ipsum is that</p>
-                        <a class="buynow" href="#">Read</a>
-
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img class="third-slide" src="{{asset('assets')}}/images/banner.jpg" alt="Third slide">
-                <div class="container">
-                    <div class="carousel-caption relative">
-                        <span>All New Phones </span>
-                        <h1>up to 25% Flat Sale</h1>
-                        <p>It is a long established fact that a reader will be distracted by the readable content
-                            <br> of a page when looking at its layout. The point of using Lorem Ipsum is that</p>
-                        <a class="buynow" href="#">Read</a>
-
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
         <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
             <i><</i>
@@ -47,5 +23,6 @@
         <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
             <i>></i>
         </a>
+
     </div>
 </section>

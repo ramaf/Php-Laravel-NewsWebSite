@@ -37,6 +37,9 @@ Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
 Route::get('/references', [HomeController::class, 'references'])->name('references');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::post('/sendmessage', [HomeController::class, 'sendmessage'])->name('sendmessage');
+Route::get('/news/{id}/{slug}', [HomeController::class, 'news'])->name('news');
+Route::get('/categorynewss/{id}/{slug}', [HomeController::class, 'categorynewss'])->name('categorynewss');
 
 Route::middleware('auth')->prefix('admin')->group(function (){
     Route::get('/',[\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin_home');
@@ -57,6 +60,14 @@ Route::middleware('auth')->prefix('admin')->group(function (){
         Route::post('update/{id}',[\App\Http\Controllers\Admin\NewsController::class,'update'])->name('admin_news_update');
         Route::get('delete/{id}',[\App\Http\Controllers\Admin\NewsController::class,'destroy'])->name('admin_news_delete');
         Route::get('show',[\App\Http\Controllers\Admin\NewsController::class,'show'])->name('admin_news_show');
+
+    });
+    Route::prefix('messages')->group(function (){
+        Route::get('/',[\App\Http\Controllers\Admin\MessageController::class,'index'])->name('admin_message');
+        Route::get('edit/{id}',[\App\Http\Controllers\Admin\MessageController::class,'edit'])->name('admin_message_edit');
+        Route::post('update/{id}',[\App\Http\Controllers\Admin\MessageController::class,'update'])->name('admin_message_update');
+        Route::get('delete/{id}',[\App\Http\Controllers\Admin\MessageController::class,'destroy'])->name('admin_message_delete');
+        Route::get('show',[\App\Http\Controllers\Admin\MessageController::class,'show'])->name('admin_message_show');
 
     });
     #News Image Gallery

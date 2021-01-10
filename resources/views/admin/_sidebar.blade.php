@@ -27,6 +27,15 @@
                     <p>News</p>
                 </a>
             </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{{route('admin_message')}}">
+                    <i class="material-icons">content_paste</i>
+                    <p>Contact Messages</p>
+                </a>
+            </li>
+
+
+
 
         </ul>
     </div>

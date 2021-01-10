@@ -23,7 +23,7 @@
                                 <ul class="menu-area-main">
                                     <li class="active"> <a href="{{route('home')}}">Home</a> </li>
                                     @foreach($parentCategories as $rs)
-                                    <li> <a href="about.html">{{$rs->title}}</a> </li>
+                                    <li> <a href="{{route('categorynewss',['id'=>$rs->id,'slug'=>$rs->title])}}">{{$rs->title}}</a> </li>
                                     @endforeach
                                     <li class="last">
                                         <a href="#"><img src="{{asset('assets')}}/images/search_icon.png" alt="icon" /></a>

@@ -1,6 +1,13 @@
 @extends('layouts.admin')
 
 @section('title','Add News')
+@section('javascript')
+    <head>
+        @FilemanagerScript
+    </head>
+    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+
+@endsection
 
 
 
@@ -32,9 +39,14 @@
                                         <tr><h4>Title:</h4> <input style="width: 600px" id="title" type="text" name="title" placeholder="Title"/></tr>
                                         <tr><h4>Keywords: </h4><input style="width: 600px" id="keywords" type="text" name="keywords" placeholder="Keywords"/></tr>
                                         <tr><h4>Description: </h4><input style="width: 600px" id="description" type="text" name="description" placeholder="Description"/></tr>
-                                        <tr><h4>Detail: </h4><textarea id="detail" name="detail"></textarea>
-
-                                        </tr>
+                                        <tr><h4>Detail: </h4><textarea id="detail" name="detail"></textarea></tr>
+                                            <script>
+                                                window.onload = function () {
+                                                    CKEDITOR.replace('detail', {
+                                                        filebrowserBrowseUrl: filemanager.ckBrowseUrl,
+                                                    });
+                                                }
+                                            </script>
                                         <tr><h4>Slug: </h4><input style="width: 600px" id="slug" type="text" name="slug" placeholder="Slug"/></tr><br>
                                         <tr><label for="image"><h4>Image:</h4></label><input type="file" name="image" id="image" class="form-control">
                                         <tr><label for="status"><h4>Status:</h4></label>

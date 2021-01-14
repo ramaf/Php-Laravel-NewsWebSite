@@ -33,6 +33,12 @@
                     <p>Contact Messages</p>
                 </a>
             </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{{route('admin_faq')}}">
+                    <i class="material-icons">content_paste</i>
+                    <p>FAQ</p>
+                </a>
+            </li>
 
 
 

@@ -3,7 +3,7 @@
 @section('title', 'Categories '.$setting->title)
 @include('home._header')
 @section('content')
-    <<div class="brand_color">
+    <div class="brand_color">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">

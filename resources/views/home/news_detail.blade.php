@@ -1,6 +1,6 @@
 @extends('layouts.home')
 
-@section('title', 'Categories '.$setting->title)
+@section('title', 'News'.$setting->title)
 @include('home._header')
 @section('content')
     <div class="brand_color">
@@ -15,10 +15,14 @@
         </div>
 
     </div>
-
-    <div class="col-sm-12" style="text-align:center;">
-
-            <p>{!! $data->detail !!}</p>
-        <br><br>
+<br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"><img src="{{ asset("storage/$data->image") }}" /> <br>{{$data->title}}
+                <br><br>
+                {{$data->keywords}}
+            </div>
+            <div class="col-md-8"><p>{!! $data->detail !!}</p></div>
+        </div>
     </div>
 @endsection

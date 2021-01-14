@@ -120,6 +120,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/http-client" />
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/vendor/haruncpi/laravel-simple-filemanager" />
     </include_path>
   </component>
   <component name="PhpUnit">

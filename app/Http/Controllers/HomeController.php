@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Faq;
 use App\Models\Image;
 use App\Models\Message;
 use App\Models\News;
@@ -57,17 +58,45 @@ class HomeController extends Controller
         return view('home.category_newss',['data'=>$data,'datalist'=>$datalist,'setting'=>$setting]);
 
     }
+    public function getnews(Request $request)
+    {
+        $search=$request->input('search');
+        $count=News::where('title','like','%'.$search.'%')->get()->count();
+        if($count==1)
+        {
+            $data=News::where('title','like','%'.$search.'%')->first();
+            return redirect()->route('news',['id'=>$data->id,'slug'=>$data->slug]);
+        }
+        else
+        {
+            return redirect()->route('newslist',['search'=>$search]);
+        }
+
+
+    }
+    public function newslist($search){
+        $setting=Setting::first();
+        $datalist=News::where('title','like','%'.$search.'%')->get();
+
+        return view('home.search_newss',['search'=>$search,'datalist'=>$datalist,'setting'=>$setting]);
+
+    }
     public function contact(){
         $setting=Setting::first();
         return view('home.contact',['setting'=>$setting,'page'=>'home']);
     }
     public function faq(){
         $setting=Setting::first();
-        return view('home.faq',['setting'=>$setting,'page'=>'home']);
+        $datalist=Faq::all()->sortBy('position');
+        return view('home.faq',['datalist'=>$datalist,'setting'=>$setting]);
     }
     public function references(){
         $setting=Setting::first();
         return view('home.references',['setting'=>$setting,'page'=>'home']);
+    }
+    public function search_page(){
+        $setting=Setting::first();
+        return view('home.search_page',['setting'=>$setting,'page'=>'home']);
     }
     public function sendmessage(Request $request)
     {

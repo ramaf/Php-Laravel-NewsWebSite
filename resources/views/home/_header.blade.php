@@ -26,7 +26,7 @@
                                     <li> <a href="{{route('categorynewss',['id'=>$rs->id,'slug'=>$rs->title])}}">{{$rs->title}}</a> </li>
                                     @endforeach
                                     <li class="last">
-                                        <a href="#"><img src="{{asset('assets')}}/images/search_icon.png" alt="icon" /></a>
+                                        <a href="{{route('search_page')}}"><img src="{{asset('assets')}}/images/search_icon.png" alt="icon" /></a>
                                     </li>
                                 </ul>
                             </nav>

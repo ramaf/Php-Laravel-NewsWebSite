@@ -37,7 +37,7 @@
                     <div class="location_icon_bottum">
                         <ul>
                             @auth
-                                <li><img src="{{asset('assets')}}/icon/user1.png" /><a href="{{route('myprofile')}}">{{Auth::user()->name}}</a></li>
+                                <li><img src="{{asset('assets')}}/icon/user1.png" /><a href="{{route('userprofile')}}">{{Auth::user()->name}}</a></li>
                                 <li><i>Welcome To HomePage</i></li>
                                 <li><a href="{{route('logout')}}"><img src="{{asset('assets')}}/icon/logout.png" />Logout</a></li>
 

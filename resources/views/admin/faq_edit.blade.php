@@ -47,7 +47,7 @@
                                                 <option value="false">False</option>
 
                                             </select></tr><br><br>
-                                        <tr><button type="submit" style="color:#95999c; background-color: #4a5568; width: 150px;">Düzenle</button></tr>
+                                        <tr><button type="submit" style="color:#95999c; background-color: #4a5568; width: 150px;">Edit</button></tr>
                                     </table>
                                 </form>
                             </div>

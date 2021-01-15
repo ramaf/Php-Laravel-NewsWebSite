@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +28,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::redirect('/anasayfa','/home')->name('anasayfa');
 
 Route::get('/', function () {
@@ -118,8 +120,17 @@ Route::middleware('auth')->prefix('user')->namespace('user')->group(function () 
         Route::get('show', [\App\Http\Controllers\NewsController::class, 'show'])->name('user_news_show');
 
     });
+    Route::prefix('image')->group(function (){
+
+        Route::get('create/{news_id}',[\App\Http\Controllers\ImageController::class,'create'])->name('user_image_add');
+        Route::post('store/{news_id}',[\App\Http\Controllers\ImageController::class,'store'])->name('user_image_store');
+        Route::get('delete/{id}/{news_id}',[\App\Http\Controllers\ImageController::class,'destroy'])->name('user_image_delete');
+        Route::get('show',[\App\Http\Controllers\ImageController::class,'show'])->name('user_image_show');
+
+    });
 
 });
+
 Route::get('/admin/login',[HomeController::class,'login'])->name('admin_login');
 Route::post('/admin/logincheck',[HomeController::class,'logincheck'])->name('admin_logincheck');
 Route::get('/admin/logout',[HomeController::class,'logout'])->name('admin_logout');

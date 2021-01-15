@@ -32,7 +32,7 @@
 <div class="about">
     <div class="container">
         <div class="row">
-            <div class="col-xl-5 col-lg-5 col-md-5 co-sm-l2">
+            <div class="col-sm-3">
                 <div class="about_img">
                     <h1>PROFILE DETAILS</h1>
 
@@ -40,12 +40,12 @@
                         <a href="#" class="active">{{Auth::user()->name}}</a>
                         <a href="{{route('myprofile')}}">MY PROFILE</a>
                         <a href="#">MY MESSAGES</a>
-                        <a href="#">MY NEWS</a>
+                        <a href="{{route('user_newss')}}">MY NEWS</a>
                         <a href="{{route('logout')}}">LOGOUT</a>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-7 col-lg-7 col-md-7 co-sm-l2">
+            <div class="col-sm-9">
 
                     @include('profile.show')
 

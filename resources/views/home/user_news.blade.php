@@ -32,7 +32,7 @@
     <div class="about">
         <div class="container">
             <div class="row">
-                <div class="col-xl-5 col-lg-5 col-md-5 co-sm-l2">
+                <div class="col-sm-3">
                     <div class="about_img">
                         <h1>PROFILE DETAILS</h1>
 
@@ -40,16 +40,15 @@
                             <a href="#" class="active">{{Auth::user()->name}}</a>
                             <a href="{{route('myprofile')}}">MY PROFILE</a>
                             <a href="#">MY MESSAGES</a>
-                            <a href="#">{{route('user_newss')}}</a>
+                            <a href="{{route('user_newss')}}">MY NEWS</a>
                             <a href="{{route('logout')}}">LOGOUT</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-7 col-lg-7 col-md-7 co-sm-l2">
-
+                <div class="col-sm-9">
                     <div class="card">
                         <div class="card-header card-header-primary">
-                            <a href="{{route('user_news_create')}}" style="position: absolute; right: 25px;font-style: italic; background-color:#9acffa;">Add news</a>
+                            <h1><a href="{{route('user_news_create')}}">ADD NEWS</a></h1>
                             <h4 class="card-title ">News</h4>
                             <p class="card-category"> Here is News table</p>
                         </div>
@@ -84,16 +83,16 @@
                                                 @endif
 
                                             </td>
-                                            <td><a href="{{route('user_image_add',['news_id'=>$rs->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')"><img src="{{asset('assets/user/images')}}/gallery.png" height="30"></a></td>
+                                            <td><a href="{{route('user_image_add',['news_id'=>$rs->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')"><img src="{{asset('assets/admin/images')}}/gallery.png" style="height: 30px;"></a></td>
 
                                             <td>
                                                 {{$rs->status}}
                                             </td>
                                             <td>
-                                                <a href="{{route('user_news_edit',['id'=>$rs->id])}}"><img src="{{asset('assets/user/images')}}/edit.png" height="30"></a>
+                                                <a href="{{route('user_news_edit',['id'=>$rs->id])}}"><img src="{{asset('assets/admin/images')}}/edit.png" style="height: 30px;"></a>
                                             </td>
                                             <td>
-                                                <a href="{{route('user_news_delete',['id'=>$rs->id])}}" onclick="return confirm('Delete ! Are you sure?')"><img src="{{asset('assets/user/images')}}/delete.png" height="30"></a>
+                                                <a href="{{route('user_news_delete',['id'=>$rs->id])}}" onclick="return confirm('Delete ! Are you sure?')"><img src="{{asset('assets/admin/images')}}/delete.png" style="height: 30px;"></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -102,12 +101,16 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>
     </div>
 @endsection
 
+<div class="container">
+    <div class="row">
+
+
+    </div>
+</div>

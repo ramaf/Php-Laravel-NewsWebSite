@@ -2,7 +2,7 @@
     <div id="myCarousel" class="carousel slide banner-main" data-ride="carousel">
         <div class="carousel-inner">
 
-            @foreach($slider->take(3) as $rs)
+            @foreach($slider->take(6) as $rs)
             <div class="carousel-item @if($loop->first) active @endif">
                 <img class="first-slide" style="width: 1920px; height: 836px;" src="{{ asset("storage/$rs->image") }}" alt="{{$rs->title}}">
                 <div class="container">

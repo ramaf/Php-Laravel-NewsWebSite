@@ -24,7 +24,7 @@ class HomeController extends Controller
     }
     public function index(){
         $setting=Setting::first();
-        $slider=News::select('id','title','image','slug','description','category_id')->limit(4)->get();
+        $slider=News::select('id','title','image','slug','description','category_id')->limit(6)->get();
         $daily=News::select('id','title','image','slug')->limit(6)->inRandomOrder()->get();
         $last=News::select('id','title','image','slug')->limit(6)->orderByDesc('id')->get();
         $picked=News::select('id','title','image','slug')->limit(6)->inRandomOrder()->get();
@@ -42,8 +42,9 @@ class HomeController extends Controller
     public function news($id,$slug){
         $setting=Setting::first();
         $data=News::find($id);
+        $picked=News::select('id','title','image','slug')->limit(6)->inRandomOrder()->get();
         $datalist=Image::where('news_id',$id)->get();
-        return view('home.news_detail',['setting'=>$setting,'data'=>$data,'datalist'=>$datalist]);
+        return view('home.news_detail',['setting'=>$setting,'picked'=>$picked,'data'=>$data,'datalist'=>$datalist]);
 
     }
     public function aboutus(){
@@ -143,6 +144,6 @@ class HomeController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/home');
     }
 }
